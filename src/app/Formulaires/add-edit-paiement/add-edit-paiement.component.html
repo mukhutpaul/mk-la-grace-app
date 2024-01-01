@@ -1,0 +1,118 @@
+
+<h5 class="card-header">{{dialogData.action}} Paiement </h5>
+<div class="card-body">
+    <form  [formGroup]="formP">
+        
+        <div class="form-row">
+        
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                <label for="validationCustom05">Formation</label>
+                <select  type="text" class="form-control" formControlName="formation"  required
+                [ngClass]="{
+                    'is-invalid': formP.get('formation').touched && !formP.get('formation').valid
+                }">
+                <option value="">---Select---</option>
+                <option *ngFor="let form of formations" value="{{form.id}}">
+                    {{form.title}}
+                </option>
+                </select>
+                <div class="invalid-feedback">
+                    <span *ngIf="formP.get('formation').errors?.required">Entrez la formation</span>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                <label for="validationCustom05">Stagiaire</label>
+                <select  type="text" class="form-control" formControlName="stagiaire"  required
+                [ngClass]="{
+                    'is-invalid': formP.get('stagiaire').touched && !formP.get('stagiaire').valid
+                }">
+                <option value="">---Select---</option>
+                <option *ngFor="let stage of stagiaires" value="{{stage.id}}">
+                    {{stage.name}}  {{stage.postnom}} {{stage.prenom}}
+                </option>
+                </select>
+                <div class="invalid-feedback">
+                    <span *ngIf="formP.get('stagiaire').errors?.required">Entrez le stagiaire</span>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                <label for="validationCustom05">Motif</label>
+                <select  type="text" class="form-control" formControlName="tranche"  required
+                [ngClass]="{
+                    'is-invalid': formP.get('tranche').touched && !formP.get('tranche').valid
+                }">
+                <option value="">---Select---</option>
+                <option *ngFor="let tr of tranches" value="{{tr.id}}">
+                    {{tr.name}}
+                </option>
+                </select>
+                <div class="invalid-feedback">
+                    <span *ngIf="formP.get('tranche').errors?.required">Entrez la tranche</span>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                <label for="validationCustom05">Mois</label>
+                <select  type="text" class="form-control" formControlName="mois"  required
+                [ngClass]="{
+                    'is-invalid': formP.get('mois').touched && !formP.get('mois').valid
+                }">
+                <option value="">---Select---</option>
+                <option value="Janvier">Janvier</option>
+                <option value="Février">Février</option>
+                <option value="Mars">Mars</option>
+                <option value="Avril">Avril</option>
+                <option value="Mai">Mai</option>
+                <option value="Juin">Juin</option>
+                <option value="Juillet">Juillet</option>
+                <option value="Août">Août</option>
+                <option value="Septembre">Septembre</option>
+                <option value="Octobre">Octobre</option>
+                <option value="Novembre">Novembre</option>
+                <option value="Février">Février</option>
+                <option value="Décembre">Décembre</option>
+                </select>
+                <div class="invalid-feedback">
+                    <span *ngIf="formP.get('tranche').errors?.required">Entrez le mois</span>
+                </div>
+            </div>
+
+            <!-- <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                <label for="validationCustom03">Date Paiement</label>
+                <input type="text" class="form-control" formControlName="datePaie" placeholder="exemple: 2022-02-02" required
+                [ngClass]="{
+                    'is-invalid': formP.controls.datePaie.touched && !formP.get('datePaie').valid
+                }"/>
+                <div class="invalid-feedback">
+                    <span *ngIf="formP.controls.datePaie.errors?.required">Entrez la date</span>
+                    <span *ngIf="formP.controls.datePaie.errors?.pattern">Respectez le format de la date!</span>
+                </div>
+            </div> -->
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                <label for="validationCustom03">Montant</label>
+                <input type="text" class="form-control" formControlName="montant" placeholder="Montant" required
+                [ngClass]="{
+                    'is-invalid': formP.controls.montant.touched && !formP.get('montant').valid
+                }"/>
+                <div class="invalid-feedback">
+                    <span *ngIf="formP.controls.montant.errors?.required">Entrez le montant</span>
+                    <span *ngIf="formP.controls.montant.errors?.maxLength">le Montant doit avoir au max 3 caractères</span>
+                    <span *ngIf="formP.controls.montant.errors?.pattern">Entrez un numérique svp!</span>
+                </div>
+            </div>
+       
+           </div>
+            <br>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <button class="btn btn-primary" [disabled]="!formP.valid" type="submit" *ngIf="fraisId==0" (click)="addPaie()">Enregister</button>
+                <button class="btn btn-primary" [disabled]="!formP.valid" type="submit" *ngIf="fraisId!=0" (click)="edit()">Modifier</button>
+            </div>
+   
+    </form>
+</div>
+
+<!-- ============================================================== -->
+<!-- end validation form -->
+<!-- ============================================================== -->

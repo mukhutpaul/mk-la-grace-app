@@ -1,0 +1,30 @@
+
+<h5 class="card-header">{{dialogData.action}} Tranche</h5>
+<div class="card-body">
+    <form  [formGroup]="formTranche">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <label for="validationCustom01">Titre</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Titre"
+                [ngClass]="{
+                    'is-invalid': formTranche.get('name').touched && !formTranche.get('name').valid
+                }"/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="formTranche.get('name').errors?.required">Entrez le titre de la tranche</span>
+                </div>
+            </div>
+
+            
+        </div>
+        <br>
+       
+    </form>
+    <button class="btn btn-primary" type="submit" (click)="addTranche()" [disabled]="!formTranche.valid" *ngIf="fraisId==0">Enregistrer</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!formTranche.valid" (click)="edit()" *ngIf="fraisId!=0">Modifier</button>
+</div>
+
+
+

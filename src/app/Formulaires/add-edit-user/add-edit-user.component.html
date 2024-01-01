@@ -1,0 +1,72 @@
+
+<h5 class="card-header">{{dialogData.action}} Formation</h5>
+<div class="card-body">
+    <form  [formGroup]="userForm">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <label for="validationCustom01">Name</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Nom"
+                [ngClass]="{
+                    'is-invalid': userForm.get('name').touched && !userForm.get('name').valid
+                }"/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="userForm.get('name').errors?.required">Entrez le nom</span>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <label for="validationCustom02">Email</label>
+                <input type="text" class="form-control" formControlName="email" placeholder="email"
+                [ngClass]="{
+                    'is-invalid': userForm.get('email').touched && !userForm.get('email').valid
+                }"/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="userForm.get('email').errors?.required">Entrez l'adresse email</span>
+                </div>
+            </div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " *ngIf="userId !=1">
+                <label for="validationCustom02">Mot de passe</label>
+                <input type="text" class="form-control" formControlName="password" placeholder="password"
+                [ngClass]="{
+                    'is-invalid': userForm.get('password').touched && !userForm.get('password').valid
+                }"/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="userForm.get('password').errors?.required">Entrez le mot de passe</span>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                <label for="validationCustom05">Rôle</label>
+                <select  type="text" class="form-control" formControlName="role"  required
+                [ngClass]="{
+                    'is-invalid': userForm.get('role').touched && !userForm.get('role').valid
+                }">
+                <option value="">---Select---</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+                
+                </select>
+                <div class="invalid-feedback">
+                    <span *ngIf="userForm.get('role').errors?.required">Entrez le rôle</span>
+                </div>
+            </div>
+
+       
+        </div>
+        <br>
+       
+    </form>
+    <button class="btn btn-primary" type="submit" (click)="addUser()" [disabled]="!userForm.valid" *ngIf="userId==0">Enregistrer</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid" (click)="edit()" *ngIf="userId!=0">Modifier</button>
+</div>
+
+

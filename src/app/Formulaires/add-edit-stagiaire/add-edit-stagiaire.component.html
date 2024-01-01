@@ -1,0 +1,218 @@
+
+        <h5 class="card-header">{{dialogData.action}} Stagiaire</h5>
+        <div class="card-body">
+            <form  [formGroup]="formStage">
+                
+                <div class="form-row">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom03">Nom</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="Nom" required
+                        [ngClass]="{
+                            'is-invalid': formStage.controls.name.touched && !formStage.get('name').valid
+                        }"/>
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.controls.name.errors?.required">Entrez le nom</span>
+                            <span *ngIf="formStage.controls.name.errors?.pattern">Le nom commence par une lettre!</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom04">Postnom</label>
+                        <input type="text" class="form-control" formControlName="postnom" placeholder="Post-nom" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('postnom').touched && !formStage.get('postnom').valid
+                        }">
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('postnom').errors?.required">Entrez le post-nom</span>
+                            <span *ngIf="formStage.controls.postnom.errors?.pattern">Le post-nom commence par une lettre!</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom05">Prenom</label>
+                        <input type="text" class="form-control" formControlName="prenom" placeholder="Prenom" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('prenom').touched && !formStage.get('prenom').valid
+                        }">
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('prenom').errors?.required">Entrez le prenom</span>
+                            <span *ngIf="formStage.controls.prenom.errors?.pattern">Le prenom commence par une lettre!</span>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom03">Lieu de naissance</label>
+                        <input type="text" class="form-control" formControlName="lieuNais" placeholder="Lieu de naissance" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('lieuNais').touched && !formStage.get('lieuNais').valid
+                        }">
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('lieuNais').errors?.required">Entrez le lieu de naissance</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom04">Date Naissance</label>
+                        <input type="text" class="form-control" formControlName="datenais" placeholder="exemple: 2022-02-02" required
+                         [ngClass]="{
+                            'is-invalid': formStage.get('datenais').touched && !formStage.get('datenais').valid
+                        }">
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('datenais').errors?.required">Entrez la date de naissance</span>
+                            <span *ngIf="formStage.controls.datenais.errors?.pattern">Respectez le format de  la date!</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom05">Sexe</label>
+                        <select type="text" class="form-control" formControlName="sexe" placeholder="Sexe" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('sexe').touched && !formStage.get('sexe').valid
+                        }">
+                        <option value="">-----Selectionnez le sexe-----</option>
+                        <option value="M">Masculin</option>
+                        <option value="F">Féminin</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('sexe').errors?.required">Entrez le sexe</span>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom03">Etat-civil</label>
+                        <select type="text" class="form-control" formControlName="etatCivil" placeholder="Sexe" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('etatCivil').touched && !formStage.get('etatCivil').valid
+                        }">
+                        <option value="">-----Selectionnez le sexe-----</option>
+                        <option value="CELIBATAIRE">CELIBATAIRE</option>
+                        <option value="MARIE">MARIE</option>
+                        <option value="VEUF">VEUF OU VEUVE </option>
+                        <option value="DIVORCE">VDIVORCE </option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('etatCivil').errors?.required">Entrez l'état civil</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom04">Niveau d'étude</label>
+                        <select type="text" class="form-control" formControlName="niveau_etude" placeholder="Sexe" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('niveau_etude').touched && !formStage.get('niveau_etude').valid
+                        }">
+                        <option value="">-----Selectionnez le sexe-----</option>
+                        <option value="DIPLOME(E)">DIPLOME(E)</option>
+                        <option value="GRADUE(E)">GRADUE(E)</option>
+                        <option value="LICENCIE(E)">LICENCIE(E) </option>
+                        <option value="AUTRES">AUTRES</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('niveau_etude').errors?.required">Entrez le niveau d'étude</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom05">Formation sollicitée</label>
+                        <select  type="text" class="form-control" formControlName="formation"  required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('formation').touched && !formStage.get('formation').valid
+                        }">
+                        <option value="">---Select---</option>
+                        <option *ngFor="let form of formations" value="{{form.id}}">
+                            {{form.title}}
+                        </option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('formation').errors?.required">Entrez la formation sollicitée</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom03">Télephone</label>
+                        <input type="text" class="form-control" formControlName="telephone" placeholder="Télephone" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('telephone').touched && !formStage.get('telephone').valid
+                        }">
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('telephone').errors?.required">Télephone</span>
+                            <span *ngIf="formStage.controls.telephone.errors?.pattern">Saisissez correctement le numéro!</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom04">E-mail</label>
+                        <input type="text" class="form-control" formControlName="email" placeholder="Email" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('email').touched && !formStage.get('email').valid
+                        }">
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('email').errors?.required">Entrez email</span>
+                            <span *ngIf="formStage.controls.email.errors?.pattern">Saisissez correctement l'adresse mail!</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom05">Langue Parlée</label>
+                        <input type="text" class="form-control" formControlName="langue_parle" placeholder="Langue Parlée" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('langue_parle').touched && !formStage.get('langue_parle').valid
+                        }">
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('langue_parle').errors?.required">Entrez langue parlée</span>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom04">Jours de formation</label>
+                        <select type="text" class="form-control" formControlName="jours" placeholder="Jours" required
+                        [ngClass]="{
+                            'is-invalid': formStage.get('jours').touched && !formStage.get('jours').valid
+                        }">
+                        <option value="">-----Selectionnez les jours-----</option>
+                        <option value="Impairs">Impairs</option>
+                        <option value="Pairs">Pairs</option>
+                        </select>
+    
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('jours').errors?.required">Entrez les jours de formation</span>
+                        </div>
+                    </div>
+                    <!-- <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                        <label for="validationCustom05">Date d'inscription</label>
+                        <input type="text" class="form-control" formControlName="dateInscription" placeholder="exemple:2022-02-02" required
+    
+                        [ngClass]="{
+                            'is-invalid': formStage.get('dateInscription').touched && !formStage.get('dateInscription').valid
+                        }">
+                        <div class="invalid-feedback">
+                            <span *ngIf="formStage.get('dateInscription').errors?.required">Entrez la date d'inscription</span>
+                            <span *ngIf="formStage.controls.dateInscription.errors?.pattern">Respectez le format de  la date!</span>
+                        </div>
+                    </div> -->
+                </div>
+                    
+
+               
+                    <div class="row">
+                        <div class="col-xl-14 col-lg-12 col-md-12 col-sm-12 col-12 " style="align-items: center;">
+                            <label for="validationCustom01">Adresse</label>
+                            <textarea type="text" class="form-control" formControlName="adresse" placeholder="Adresse"  required
+                            [ngClass]="{
+                                'is-invalid': formStage.get('adresse').touched && !formStage.get('adresse').valid
+                            }">
+                            
+                        </textarea>
+                        <div class="valid-feedback">
+                            <span *ngIf="formStage.get('adresse').errors?.required">Entrez l'adresse</span>
+                        </div>
+                           
+                        </div>
+                       
+                    </div>
+                    
+            
+                    <br>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                        <button class="btn btn-primary" [disabled]="!formStage.valid" type="submit" *ngIf="fraisId==0" (click)="addStagiaire()">Enregister</button>
+                        <button class="btn btn-primary" [disabled]="!formStage.valid" type="submit" *ngIf="fraisId!=0" (click)="edit()">Modifier</button>
+                    </div>
+           
+            </form>
+        </div>
+    
+    <!-- ============================================================== -->
+    <!-- end validation form -->
+    <!-- ============================================================== -->

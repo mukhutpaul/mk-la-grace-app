@@ -1,0 +1,40 @@
+
+            <h5 class="card-header">FORMULAIRE D'ENREGISTREMENT DES FRAIS</h5>
+            <div class="card-body">
+                <form  [formGroup]="fraisForm">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                            <label for="validationCustom01">Libellé</label>
+                            <input type="text" class="form-control" formControlName="name" placeholder="Libellé"
+                            [ngClass]="{
+                                'is-invalid': fraisForm.get('name').touched && !fraisForm.get('name').valid
+                            }"/>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                <span *ngIf="fraisForm.get('name').errors?.required">Entrez le libellé frais</span>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                            <label for="validationCustom02">Montant</label>
+                            <input type="text" class="form-control" formControlName="montmensuel" placeholder="Montant"
+                            [ngClass]="{
+                                'is-invalid': fraisForm.get('montmensuel').touched && !fraisForm.get('montmensuel').valid
+                            }"/>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                <span *ngIf="fraisForm.get('name').errors?.required">Entrez le libellé montant</span>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <br>
+                   
+                </form>
+                <button class="btn btn-primary" type="submit" (click)="addFrais()" [disabled]="!fraisForm.valid" *ngIf="fraisId==0">Enregistrer</button>
+                <button class="btn btn-primary" type="submit" [disabled]="!fraisForm.valid" (click)="edit()" *ngIf="fraisId!=0">Modifier</button>
+            </div>
+     

@@ -1,0 +1,55 @@
+
+<h5 class="card-header">{{dialogData.action}} Formation</h5>
+<div class="card-body">
+    <form  [formGroup]="formForm">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <label for="validationCustom01">Titre</label>
+                <input type="text" class="form-control" formControlName="title" placeholder="Titre"
+                [ngClass]="{
+                    'is-invalid': formForm.get('title').touched && !formForm.get('title').valid
+                }"/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="formForm.get('title').errors?.required">Entrez le titre</span>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <label for="validationCustom02">Cout de la formation</label>
+                <input type="text" class="form-control" formControlName="coutformation" placeholder="Coût Formation"
+                [ngClass]="{
+                    'is-invalid': formForm.get('coutformation').touched && !formForm.get('coutformation').valid
+                }"/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="formForm.get('coutformation').errors?.required">Entrez le coût de la formation</span>
+                </div>
+            </div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                <label for="validationCustom02">Durée de la formation</label>
+                <input type="text" class="form-control" formControlName="duree" placeholder="Durée Formation"
+                [ngClass]="{
+                    'is-invalid': formForm.get('duree').touched && !formForm.get('duree').valid
+                }"/>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="formForm.get('duree').errors?.required">Entrez la durée de la formation</span>
+                </div>
+            </div>
+          
+        </div>
+        <br>
+       
+    </form>
+    <button class="btn btn-primary" type="submit" (click)="addForm()" [disabled]="!formForm.valid" *ngIf="fraisId==0">Enregistrer</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!formForm.valid" (click)="edit()" *ngIf="fraisId!=0">Modifier</button>
+</div>
+
+
