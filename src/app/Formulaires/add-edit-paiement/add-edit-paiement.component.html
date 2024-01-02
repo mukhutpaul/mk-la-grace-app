@@ -39,15 +39,29 @@
 
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                 <label for="validationCustom05">Motif</label>
-                <select  type="text" class="form-control" formControlName="tranche"  required
+                
+                <select  type="text" class="form-control" formControlName="tranche"  
                 [ngClass]="{
                     'is-invalid': formP.get('tranche').touched && !formP.get('tranche').valid
                 }">
+                <input type="text" id="foo" class="foo">
                 <option value="">---Select---</option>
+                
                 <option *ngFor="let tr of tranches" value="{{tr.id}}">
                     {{tr.name}}
                 </option>
                 </select>
+                <select2
+                [overlay]="overlay"
+                [data]="data1"
+                [value]="value1"
+                (update)="update('value1',$event)"
+                (change)="change('change1',$event)"
+                (search)="search('search1')"
+                resettable
+                id="select2-1"
+                >
+              </select2>
                 <div class="invalid-feedback">
                     <span *ngIf="formP.get('tranche').errors?.required">Entrez la tranche</span>
                 </div>
@@ -111,8 +125,22 @@
             </div>
    
     </form>
+
 </div>
 
+<script type="text/javascript">
+    // Data input taken from "label", not "text" like usual
+    var lstData = [{id: 0, 'label': 'story'},{id: 1, 'label': 'bug'},{id: 2, 'label': 'task'}];
+    $("#foo").select2({
+        createSearchChoice:function(term, data) {
+            if ($(data).filter(function() {
+                return this.label.localeCompare(term)===0; }).length===0) {
+                    return {id:term, 'label':term};
+                }
+            },
+        data: { results: lstData, text: 'label' }
+    });
+</script>
 <!-- ============================================================== -->
 <!-- end validation form -->
 <!-- ============================================================== -->

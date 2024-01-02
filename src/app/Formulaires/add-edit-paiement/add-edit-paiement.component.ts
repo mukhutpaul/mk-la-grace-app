@@ -3,6 +3,7 @@ import { Component, EventEmitter, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Select2, Select2Option, Select2UpdateEvent } from 'ng-select2-component';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { FormationService } from 'src/app/services/formation.service';
@@ -226,6 +227,41 @@ getFormations(){
           
         })
       }
+    overlay=false;
+      data1:any=[
+        {
+          label:"Alaskan/mukhut",
+          options: [
+            {values: 'AK', label: 'ask'}
+          ]
+        },
+        {
+          label: "Pacific time zone",
+          options: [
+            {values:'CA',label: 'Categorie'}
+          ]
+
+          }
+        
+      ];
+
+      change(key: string,event:Event){
+        console.log(key,event)
+      }
+
+    search(text:string){
+      this.data1 = text
+      ? (JSON.parse(JSON.stringify(this.data1)) as Select2Option[]).filter(
+        option => option.label.toLowerCase().indexOf(text.toLocaleLowerCase()) > -1,
+
+      ): JSON.parse(JSON.stringify(this.data1))
+    }
+
+    update(key: string,event:Select2UpdateEvent<any>){
+      console.log(event.value);
+    }
+
+    value1 = "CA"
 
 }
 
