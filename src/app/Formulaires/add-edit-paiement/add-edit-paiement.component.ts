@@ -1,9 +1,9 @@
 import { DatePipe, formatDate } from '@angular/common';
-import { Component, EventEmitter, Inject, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit,AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Select2, Select2Option, Select2UpdateEvent } from 'ng-select2-component';
+import { Select2Option, Select2UpdateEvent } from 'ng-select2-component';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { FormationService } from 'src/app/services/formation.service';
@@ -13,6 +13,10 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { StagiaireService } from 'src/app/services/stagiaire.service';
 import { TrancheService } from 'src/app/services/tranche.service';
 import Swal from 'sweetalert2';
+import * as $ from "jquery";
+import "select2";
+
+
 
 @Component({
   selector: 'app-add-edit-paiement',
@@ -21,7 +25,7 @@ import Swal from 'sweetalert2';
   providers: [DatePipe]
 })
 
-export class AddEditPaiementComponent implements OnInit{
+export class AddEditPaiementComponent implements OnInit, AfterViewInit{
 
 
   constructor(private formBuilder:FormBuilder,
@@ -53,6 +57,12 @@ stagiaires:any;
 private _formations: Array<any>=[];
 
  date = new Date();
+
+ ngAfterViewInit() {
+  // Use jQuery to select the element and initialize Select2
+  $("#sear").select2();
+ 
+}
 
 ngOnInit(): void {
 

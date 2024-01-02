@@ -22,7 +22,7 @@ import { EditFraisComponent } from './Formulaires/edit-frais/edit-frais.componen
 import {  MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table'
-import { MatFormField, MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { FormationComponent } from './pages/formation/formation.component';
 import { AddEditFormationComponent } from './Formulaires/add-edit-formation/add-edit-formation.component';
 import { TrancheComponent } from './pages/tranche/tranche.component';
@@ -33,7 +33,6 @@ import { AddEditPaiementComponent } from './Formulaires/add-edit-paiement/add-ed
 import { PaiementComponent } from './pages/paiement/paiement.component';
 import { AddEditUserComponent } from './Formulaires/add-edit-user/add-edit-user.component';
 import { RecuComponent } from './rapport/recu/recu.component';
-import { MatSelectModule } from '@angular/material/select';
 import { Select2Module } from 'ng-select2-component';
 
 
@@ -88,9 +87,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatPaginatorModule,
     MatTableModule,
     MatFormFieldModule,
-    MatSelectModule,
     Select2Module
-
     
   
    
