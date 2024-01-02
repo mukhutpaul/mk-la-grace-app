@@ -20,18 +20,16 @@
                     <span *ngIf="formP.get('formation').errors?.required">Entrez la formation</span>
                 </div>
             </div>
-
+         
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                 <label for="validationCustom05">Stagiaire</label>
-                <select  type="text" class="form-control" formControlName="stagiaire"  required
-                [ngClass]="{
-                    'is-invalid': formP.get('stagiaire').touched && !formP.get('stagiaire').valid
-                }">
+                <select  type="text" class="form-control" formControlName="stagiaire"  required >
                 <option value="">---Select---</option>
                 <option *ngFor="let stage of stagiaires" value="{{stage.id}}">
                     {{stage.name}}  {{stage.postnom}} {{stage.prenom}}
                 </option>
                 </select>
+                
                 <div class="invalid-feedback">
                     <span *ngIf="formP.get('stagiaire').errors?.required">Entrez le stagiaire</span>
                 </div>
@@ -39,28 +37,15 @@
 
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                 <label for="validationCustom05">Motif</label>
-                
-                <select  type="text" id="sear" class="form-control select2" formControlName="tranche"  
+                <select  type="text" class="form-control" formControlName="tranche"  required
                 [ngClass]="{
                     'is-invalid': formP.get('tranche').touched && !formP.get('tranche').valid
                 }">
                 <option value="">---Select---</option>
-                
                 <option *ngFor="let tr of tranches" value="{{tr.id}}">
                     {{tr.name}}
                 </option>
                 </select>
-            <select2
-                [overlay]="overlay"
-                [data]="data1"
-                [value]="value1"
-                (update)="update('value1',$event)"
-                (change)="change('change1',$event)"
-                (search)="search('search1')"
-                resettable
-                id="select2"
-                >
-              </select2>
                 <div class="invalid-feedback">
                     <span *ngIf="formP.get('tranche').errors?.required">Entrez la tranche</span>
                 </div>
@@ -124,7 +109,6 @@
             </div>
    
     </form>
-
 </div>
 
 <!-- ============================================================== -->

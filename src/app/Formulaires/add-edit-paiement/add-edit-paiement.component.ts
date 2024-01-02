@@ -1,9 +1,8 @@
 import { DatePipe, formatDate } from '@angular/common';
-import { Component, EventEmitter, Inject, Input, OnInit,AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Select2Option, Select2UpdateEvent } from 'ng-select2-component';
 import { ToastrService } from 'ngx-toastr';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { FormationService } from 'src/app/services/formation.service';
@@ -13,9 +12,9 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { StagiaireService } from 'src/app/services/stagiaire.service';
 import { TrancheService } from 'src/app/services/tranche.service';
 import Swal from 'sweetalert2';
+
 import * as $ from "jquery";
 import "select2";
-
 
 
 @Component({
@@ -25,7 +24,16 @@ import "select2";
   providers: [DatePipe]
 })
 
-export class AddEditPaiementComponent implements OnInit, AfterViewInit{
+export class AddEditPaiementComponent implements OnInit,AfterViewInit{
+  a:any
+  ngAfterViewInit() {
+    // Use jQuery to select the element and initialize Select2
+    $(".sear").select2();
+    $("#sear2").select2();
+    $("#sear3").select2();
+    this.a = $(".sear").val()
+   
+    }
 
 
   constructor(private formBuilder:FormBuilder,
@@ -58,13 +66,8 @@ private _formations: Array<any>=[];
 
  date = new Date();
 
- ngAfterViewInit() {
-  // Use jQuery to select the element and initialize Select2
-  $("#sear").select2();
- 
-}
-
 ngOnInit(): void {
+
 
   console.log(this.datePipe.transform(this.maDate, 'dd/MM/yyyy H:M:S'))
   this.formP = this.formBuilder.group({
@@ -103,6 +106,7 @@ addPaie(){
   //console.log(localStorage.getItem('adresse'))
   this.ngxService.start()
   var formData = this.formP.value;
+ 
   var data ={
       stagiaire: {"id":formData.stagiaire},
       formation: {"id":formData.formation},
@@ -237,41 +241,6 @@ getFormations(){
           
         })
       }
-    overlay=false;
-      data1:any=[
-        {
-          label:"Alaskan/mukhut",
-          options: [
-            {values: 'AK', label: 'ask'}
-          ]
-        },
-        {
-          label: "Pacific time zone",
-          options: [
-            {values:'CA',label: 'Categorie'}
-          ]
-
-          }
-        
-      ];
-
-      change(key: string,event:Event){
-        console.log(key,event)
-      }
-
-    search(text:string){
-      this.data1 = text
-      ? (JSON.parse(JSON.stringify(this.data1)) as Select2Option[]).filter(
-        option => option.label.toLowerCase().indexOf(text.toLocaleLowerCase()) > -1,
-
-      ): JSON.parse(JSON.stringify(this.data1))
-    }
-
-    update(key: string,event:Select2UpdateEvent<any>){
-      console.log(event.value);
-    }
-
-    value1 = "CA"
 
 }
 

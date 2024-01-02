@@ -228,7 +228,7 @@ recu(id:any){
                  
        };
     
-    pdfMake.createPdf(docDefinition).download(); 
+    pdfMake.createPdf(docDefinition).download(response.stagiaire.name); 
       
     
 

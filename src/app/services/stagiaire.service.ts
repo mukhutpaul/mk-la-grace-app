@@ -41,6 +41,8 @@ export class StagiaireService {
     })
   }
 
+
+
   getCurrentData(id:any){
     return this.httpClient.get(this.url+"/api/stagiaire/"+id,{
 
