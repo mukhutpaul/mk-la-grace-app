@@ -38,6 +38,7 @@ import { Select2Module } from 'ng-select2-component';
 
 
 
+
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text:"Loading...",
   textColor:"#3c65e8",
@@ -87,11 +88,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatPaginatorModule,
     MatTableModule,
     MatFormFieldModule,
-    Select2Module
-    
-  
-   
-    
+    Select2Module,
   ],
   providers: [],
   bootstrap: [AppComponent]

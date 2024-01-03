@@ -26,6 +26,7 @@
     "@babel/parser": "7.22.5",
     "@babel/traverse": "^7.23.6",
     "@popperjs/core": "^2.11.8",
+    "angularx-qrcode": "^17.0.0",
     "http-client": "^4.3.1",
     "jquery": "^3.7.1",
     "ng-chartist": "^5.0.0",

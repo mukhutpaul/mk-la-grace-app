@@ -184,23 +184,27 @@ fiche(id:any){
       // by default we use portrait, you can change it to landscape if you wish
       pageOrientation: 'portrait',
       header:{ columns: [
-        { text: 'Centre De Formation Professionnelle  Mk-La Grâce ', alignment: 'center',italics: true,bold:true,fontSize:20,
-        //fontFamily: 'Roboto',
-        //decoration: 'underline',
-        
-      },
-      {text:"Kinshasa, le "+response.dateInscription,alignment:'center',margin:[25,10,10,10],fontSize:20},
+     
+      {text:" ",fontSize:20},
       ],
       },
 
       footer: {
-        margin: [10, 0, 10, 0],
+        margin: [10, 0, 60, 60],
         columns: [
-          { text: 'Adresse : 10ème rue Limete Résidentiel,Réf : Foleco', alignment: 'center',italics: true,bold:true,fontSize:10 }
+      
         ]
       },
       content: [
-        {text:"FICHE D'INSCRIPTION",alignment:'center',margin:[25,10,10,10],fontSize:20},
+        
+        { text: 'Centre De Formation Professionnelle  Mk-La Grâce ', alignment: 'center',italics: true,bold:true,fontSize:20,
+        margin: [10, 0, 60, 0],
+        //fontFamily: 'Roboto',
+        //decoration: 'underline',
+        
+      },
+        {text:"FICHE D'INSCRIPTION",alignment:'center',margin:[25,10,10,10],fontSize:16,bold:true,
+        decorationStyle: 'solid'},
         
         {
           layout: 'lightHorizontalLines', // optional
@@ -213,9 +217,9 @@ fiche(id:any){
             body: [
               [ 'ETIQUETTES', 'DONNEES','',''],
               [ 'Numéro d\'ordre',': '+response.id, '', '' ],
-              [ 'Nom stagiaire', ': '+response.name, '', '' ],
-              [ 'Post-nom stagiaire',': '+ response.postnom, '', '' ],
-              [ 'Prenom stagiaire ', ': '+response.prenom, '', '' ],
+              [ 'Nom apprenant', ': '+response.name, '', '' ],
+              [ 'Post-nom apprenant',': '+ response.postnom, '', '' ],
+              [ 'Prenom apprenant ', ': '+response.prenom, '', '' ],
               [ 'Lieu de naissance',': '+ response.lieuNais, '', '' ],
               [ 'Date de naissance ',': '+response.datenais, '', '' ],
               [ 'Sexe',': '+ response.sexe, '', '' ],
@@ -229,16 +233,31 @@ fiche(id:any){
               [ 'Date d\'inscription ',': '+response.dateInscription, '', '' ],
               [ 'Formation sollicitée',': '+response.formation.title, '', '' ],
               
-
+             
               
             ],
 
             
           }
         },
-        {text:"Signature du stagiaire",alignment:'right',margin:[25,80,10,10],fontSize:20},
 
-        {text: response.name+" "+ response.postnom+" "+response.prenom,alignment:'right',margin:[25,20,10,10],fontSize:20},
+        { qr:"Id : "+response.id+"\n Nom : "+response.name+"\nPost-nom : "+response.postnom+"\nPrenom : "+response.prenom+"\nLieu Nais : "+response.lieuNais+"\nDate Nais "+response.datenais+"\n Sexe "+response.sexe+"\nEtat civil : "+response.etatCivil+"\nNiveau d'étude : "+response.niveau_etude+"\n Adresse : "+response.adresse+"\nTéléphone : "+response.telephone+"\n Email : "+response.email+"\nLangue parlée : "+response.langue_parle+"\nJours : "+response.jours+"\nDate Inscription : "+response.dateInscription+"\n Formation : "+response.formation.title,fit: '100'},
+
+        // colored QR
+      //  { qr: 'text in QR', foreground: 'red', background: 'yellow' },
+    
+        // resized QR
+       // { qr: 'text in QR', fit: '500' },
+
+    
+        {text:"Déclaration de l'apprenant",alignment:'left',margin:[0,10,10,10],fontSize:15,bold:true},
+        {text:"J'ai lu et pris connaissance de la teneur du contenu de ce document, je m'engage à entamer la formation. Je consens à ne pas demander un remboursement des frais payées à cet effet.",alignment:'justify',margin:[0,10,10,10],fontSize:12},
+        {text:"Signature de l'apprenant",alignment:'right',margin:[25,10,10,10],fontSize:13},
+
+        {text: response.name+" "+ response.postnom+" "+response.prenom,alignment:'right',margin:[25,10,10,10],fontSize:13,bold:true},
+
+
+        { text: 'Adresse : 10ème rue Limete Résidentiel,Réf : Foleco', alignment: 'center',italics: true,bold:true,fontSize:10,margin:[ 50, 60, 50, 30 ]}
       ],
       
       // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
@@ -246,7 +265,7 @@ fiche(id:any){
                  
        };
   
-    pdfMake.createPdf(docDefinition).open(); 
+     pdfMake.createPdf(docDefinition).open(); 
     
   },(error:any)=>{ 
     console.log(error);

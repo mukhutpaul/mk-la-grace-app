@@ -198,6 +198,7 @@ recu(id:any){
         //decoration: 'underline',
       },
       ],
+       
       },
 
       footer: {
@@ -206,21 +207,19 @@ recu(id:any){
           { text: 'Adresse : 10ème rue Limete Résidentiel,Réf : Foleco', alignment: 'center',italics: true,bold:true,fontSize:10 }
         ]
       },
-      content: {
+      content: [
         
-        columns: [
+        
        
             
             {text: 'N° paiement : '+response.id+'\nN° Stagiaire : '+response.stagiaire.id+'\nNom : '+response.stagiaire.name+"\nPost-Nom : "+response.stagiaire.postnom+"\n Prenom : "+response.stagiaire.prenom
             +"\n Date : "+response.datePaie+"\n Montant : "+response.montant+" $"+"\n Formation : "+response.formation.title+"\n Motif : "+response.tranche.name+"\n Caissier : "+localStorage.getItem('name'),
-          alignment:'left',fontSize:10}
+          alignment:'left',fontSize:7},
             
-      
-          
-    
-     
-      ]    
-    },
+          {qr:'N° paiement : '+response.id+'\nN° Stagiaire : '+response.stagiaire.id+'\nNom : '+response.stagiaire.name+"\nPost-Nom : "+response.stagiaire.postnom+"\n Prenom : "+response.stagiaire.prenom
+          +"\n Date : "+response.datePaie+"\n Montant : "+response.montant+" $"+"\n Formation : "+response.formation.title+"\n Motif : "+response.tranche.name+"\n Caissier : "+localStorage.getItem('name'),fit:'50',alignment: 'center'}
+       
+      ],
     
       
       // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
@@ -228,7 +227,7 @@ recu(id:any){
                  
        };
     
-    pdfMake.createPdf(docDefinition).download(response.stagiaire.name); 
+    pdfMake.createPdf(docDefinition).open(); 
       
     
 
