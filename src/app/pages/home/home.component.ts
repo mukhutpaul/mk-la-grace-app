@@ -30,10 +30,10 @@ export class HomeComponent implements OnInit{
      this.PaieJour()
     }
 
-  home(){
+ async home(){
     //console.log(localStorage.getItem('adresse'))
     this.ngxService.start()
-      this.stageServ.getStageFor().subscribe((response:any)=>{
+     await this.stageServ.getStageFor().subscribe((response:any)=>{
         this.dataSource =  response
         console.log( this.dataSource)
         var data = {
@@ -58,10 +58,10 @@ export class HomeComponent implements OnInit{
       })
     }
 
-    PaieMensuel(){
+    async PaieMensuel(){
       //console.log(localStorage.getItem('adresse'))
       this.ngxService.start()
-        this.servPaie.getPaieMensuel().subscribe((response:any)=>{
+       await this.servPaie.getPaieMensuel().subscribe((response:any)=>{
           this.paie =  response
           console.log(this.paie)
         
@@ -83,11 +83,11 @@ export class HomeComponent implements OnInit{
         })
       }
 
-      PaieJour(){
+      async PaieJour(){
         //console.log(localStorage.getItem('adresse'))
         this.paiejour =0
         this.ngxService.start()
-          this.servPaie.getJour().subscribe((response:any)=>{
+       await   this.servPaie.getJour().subscribe((response:any)=>{
             this.paiejour =  response
             console.log(this.paiejour)
           

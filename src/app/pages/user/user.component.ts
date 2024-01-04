@@ -43,13 +43,13 @@ import Swal from 'sweetalert2';
   
   
   
-    tableData(){
+   async tableData(){
       if(localStorage.getItem('role')==null){
         this.router.navigate(['/']);
        }
       //console.log(localStorage.getItem('adresse'))
       this.ngxService.start()
-        this.userService.getUsers().subscribe((response:any)=>{
+     await   this.userService.getUsers().subscribe((response:any)=>{
           this.dataSource =  new MatTableDataSource(response);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;

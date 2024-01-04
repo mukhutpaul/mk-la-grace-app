@@ -56,10 +56,10 @@ export class PaiementComponent implements OnInit{
 
 
 
-  tableData(){
+  async tableData(){
     //console.log(localStorage.getItem('adresse'))
     this.ngxService.start()
-      this.paiementService.get().subscribe((response:any)=>{
+    await  this.paiementService.get().subscribe((response:any)=>{
         this.dataSource =  new MatTableDataSource(response);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

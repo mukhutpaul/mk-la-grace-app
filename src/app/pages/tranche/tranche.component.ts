@@ -48,10 +48,10 @@ export class TrancheComponent implements OnInit{
 
 
 
-  tableData(){
+  async tableData(){
     //console.log(localStorage.getItem('adresse'))
     this.ngxService.start()
-      this.trancheService.get().subscribe((response:any)=>{
+     await this.trancheService.get().subscribe((response:any)=>{
         this.dataSource =  new MatTableDataSource(response);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

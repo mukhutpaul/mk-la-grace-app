@@ -216,7 +216,7 @@ async fiche(id:any){
           alignment:'center',
         },
      
-        {text:"FICHE D'INSCRIPTION",alignment:'center',margin:[25,10,10,10],fontSize:16,bold:true,
+        {text:"FICHE D'INSCRIPTION DE L'APPRENANT",alignment:'center',margin:[25,10,10,10],fontSize:16,bold:true,
         decorationStyle: 'solid'},
         
         {
@@ -230,9 +230,9 @@ async fiche(id:any){
             body: [
               [ 'ETIQUETTES', 'DONNEES','',''],
               [ 'Numéro d\'ordre',': '+response.id, '', '' ],
-              [ 'Nom apprenant', ': '+response.name, '', '' ],
-              [ 'Post-nom apprenant',': '+ response.postnom, '', '' ],
-              [ 'Prenom apprenant ', ': '+response.prenom, '', '' ],
+              [ 'Nom', ': '+response.name, '', '' ],
+              [ 'Post-nom',': '+ response.postnom, '', '' ],
+              [ 'Prenom', ': '+response.prenom, '', '' ],
               [ 'Lieu de naissance',': '+ response.lieuNais, '', '' ],
               [ 'Date de naissance ',': '+response.datenais, '', '' ],
               [ 'Sexe',': '+ response.sexe, '', '' ],
@@ -264,13 +264,13 @@ async fiche(id:any){
 
     
         {text:"Déclaration de l'apprenant",alignment:'left',margin:[0,10,10,10],fontSize:15,bold:true},
-        {text:"J'ai lu et pris connaissance de la teneur du contenu de ce document, je m'engage à entamer la formation. Je consens à ne pas demander un remboursement des frais payées à cet effet.",alignment:'justify',margin:[0,10,10,10],fontSize:12},
+        {text:"J'ai lu et pris connaissance de la teneur du contenu de ce document, je m'engage à entamer la formation. Je consens à ne pas demander un remboursement des frais payées à cet effet.",alignment:'justify',margin:[0,5,10,10],fontSize:12},
         {text:"Signature de l'apprenant",alignment:'right',margin:[25,10,10,10],fontSize:13},
 
         {text: response.name+" "+ response.postnom+" "+response.prenom,alignment:'right',margin:[25,10,10,10],fontSize:13,bold:true},
 
 
-        { text: 'Adresse : 10ème rue Limete Résidentiel,Réf : Foleco', alignment: 'center',italics: true,bold:true,fontSize:10,margin:[ 50, 60, 50, 30 ]}
+        { text: 'Adresse : 10ème rue Limete Résidentiel,Réf : Foleco', alignment: 'center',italics: true,bold:true,fontSize:10,margin:[ 50, 30, 50, 30 ]}
       ],
       
       // [left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins
