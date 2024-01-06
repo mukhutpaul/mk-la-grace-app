@@ -34,6 +34,8 @@ import { PaiementComponent } from './pages/paiement/paiement.component';
 import { AddEditUserComponent } from './Formulaires/add-edit-user/add-edit-user.component';
 import { RecuComponent } from './rapport/recu/recu.component';
 import { Select2Module } from 'ng-select2-component';
+import { FcComponent } from './pages/fc/fc.component';
+import { AddEditFcComponent } from './Formulaires/add-edit-fc/add-edit-fc.component';
 
 
 
@@ -73,7 +75,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     AddEditPaiementComponent,
     PaiementComponent,
     AddEditUserComponent,
-    RecuComponent
+    RecuComponent,
+    FcComponent,
+    AddEditFcComponent
   ],
   imports: [
     BrowserModule,

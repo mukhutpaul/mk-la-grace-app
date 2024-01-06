@@ -13,6 +13,7 @@ import { StagiaireComponent } from './pages/stagiaire/stagiaire.component';
 import { PaiementComponent } from './pages/paiement/paiement.component';
 import { AddEditPaiementComponent } from './Formulaires/add-edit-paiement/add-edit-paiement.component';
 import { AddEditUserComponent } from './Formulaires/add-edit-user/add-edit-user.component';
+import { FcComponent } from './pages/fc/fc.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'tranche', component: TrancheComponent},
   { path: 'stagiaire', component: StagiaireComponent},
   { path: 'paiement', component: PaiementComponent},
+  { path: 'fc', component: FcComponent},
   { path: 'editPaie', component: AddEditPaiementComponent},
   { path: 'editUser', component: AddEditUserComponent},
  

@@ -106,21 +106,7 @@
                             <span *ngIf="formStage.get('niveau_etude').errors?.required">Entrez le niveau d'étude</span>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
-                        <label for="validationCustom05">Formation sollicitée</label>
-                        <select  type="text" class="form-control" formControlName="formation"  required
-                        [ngClass]="{
-                            'is-invalid': formStage.get('formation').touched && !formStage.get('formation').valid
-                        }">
-                        <option value="">---Select---</option>
-                        <option *ngFor="let form of formations" value="{{form.id}}">
-                            {{form.title}}
-                        </option>
-                        </select>
-                        <div class="invalid-feedback">
-                            <span *ngIf="formStage.get('formation').errors?.required">Entrez la formation sollicitée</span>
-                        </div>
-                    </div>
+                
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                         <label for="validationCustom03">Télephone</label>
                         <input type="text" class="form-control" formControlName="telephone" placeholder="Télephone" required

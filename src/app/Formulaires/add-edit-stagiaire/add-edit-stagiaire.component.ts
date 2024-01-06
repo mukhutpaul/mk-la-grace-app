@@ -64,7 +64,6 @@ ngOnInit(): void {
   langue_parle:['',[Validators.required]],
   jours:['',[Validators.required]],
   //dateInscription:['',[Validators.required,Validators.pattern(GlobalConstants.dateRegex)]],
-  formation:['',[Validators.required]]
   })
   if(this.dialogData.action === "Modification"){
     this.dialogAction = "Modification";
@@ -85,7 +84,6 @@ ngOnInit(): void {
       langue_parle:this.dialogData.data.langue_parle,
       jours:this.dialogData.data.jours,
       dateInscription:this.dialogData.data.dateInscription,
-      formation:this.dialogData.data.formation.id
     });
 
     console.log(this.dialogData.data)
@@ -114,7 +112,6 @@ addStagiaire(){
       langue_parle: formData.langue_parle,
       jours: formData.jours,
       dateInscription: this.datePipe.transform(this.maDate, 'dd/MM/yyyy H:M:S'),
-      formation: {"id":formData.formation}
 
     }
 
@@ -170,7 +167,6 @@ edit(){
       langue_parle: formData.langue_parle,
       jours: formData.jours,
      // dateInscription: formData.dateInscription,
-      formation: {"id":formData.formation}
   }
   //console.log(this.dialogData.data.id);
   this.stagiaireService.update(this.dialogData.data.id,data).subscribe((response:any)=>{

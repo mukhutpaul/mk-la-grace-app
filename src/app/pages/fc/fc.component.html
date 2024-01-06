@@ -20,9 +20,9 @@
             <!-- ============================================================== -->
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">GESTION DES STAGIAIRES</h5>
+                    <h5 class="card-header">GESTION DES FORMATIONS SOLLICITEES</h5>
                     <div class="card-header" style="text-align: right;">
-                        <button class="btn btn-block btn-primary btn-xl" (click)="handleAddAction()" style="width: 200px;">Nouveau Stagiaire</button>
+                        <button class="btn btn-block btn-primary btn-xl" (click)="handleAddAction()" style="width: 200px;">Nouvelle sollicitation</button>
                     </div>
                     <div class="card-body">
                         <div class="email-search">
@@ -87,38 +87,28 @@
                        
                         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                             <ng-container matColumnDef="id">
-                                <th mat-header-cell *matHeaderCellDef>N° D'ordre</th>
+                                <th mat-header-cell *matHeaderCellDef>Identifiant</th>
                                 <td mat-cell *matCellDef="let element">{{element.id}}</td>
 
                             </ng-container>
-                            <ng-container matColumnDef="name">
-                                <th mat-header-cell *matHeaderCellDef>Name</th>
-                                <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                            <ng-container matColumnDef="stagiaire">
+                                <th mat-header-cell *matHeaderCellDef>Stagiaire</th>
+                                <td mat-cell *matCellDef="let element">{{element.stagiaire.name}} {{element.stagiaire.postnom}} {{element.stagiaire.prenom}}</td>
 
                             </ng-container>
-                            <ng-container matColumnDef="postnom">
-                                <th mat-header-cell *matHeaderCellDef>Post-nom</th>
-                                <td mat-cell *matCellDef="let element">{{element.postnom}}</td>
-
-                            </ng-container>
-
-                            <ng-container matColumnDef="prenom">
-                                <th mat-header-cell *matHeaderCellDef>Prénom</th>
-                                <td mat-cell *matCellDef="let element">{{element.prenom}}</td>
-
-                            </ng-container>
-
-                            <ng-container matColumnDef="sexe">
-                                <th mat-header-cell *matHeaderCellDef>Sexe</th>
-                                <td mat-cell *matCellDef="let element">{{element.sexe}}</td>
+                            <ng-container matColumnDef="formation">
+                                <th mat-header-cell *matHeaderCellDef>Formation</th>
+                                <td mat-cell *matCellDef="let element">{{element.formation.title}}</td>
 
                             </ng-container>
 
                             <ng-container matColumnDef="date">
-                                <th mat-header-cell *matHeaderCellDef>Date Inscription</th>
-                                <td mat-cell *matCellDef="let element">{{element.dateInscription}}</td>
+                                <th mat-header-cell *matHeaderCellDef>Date de sollicitation</th>
+                                <td mat-cell *matCellDef="let element">{{element.date}}</td>
 
                             </ng-container>
+
+                       
 
                             
 
@@ -131,11 +121,8 @@
                             <ng-container matColumnDef="edit">
                                 <th mat-header-cell *matHeaderCellDef>Action</th>
                                 <td mat-cell *matCellDef="let element" class="action-link">   
-                                    <a routerLink="/stagiaire" matTooltip="Modifier"(click)="handleEditAction(element)"><i class="m-r-10 mdi mdi-pen"></i> </a>
-                                    <a  routerLink="/stagiaire" matTooltip="Delete" (click)="deleteFor(element.id)" *ngIf="role=='Admin'"><i class="m-r-10 mdi mdi-delete-empty"></i></a>
-                                    <a  routerLink="/stagiaire" matTooltip="Delete" (click)="fiche(element.id)"><i class="fas fa-print"></i></a>
-                                    <a  routerLink="/stagiaire" matTooltip="Delete" (click)="fiche1(element.id)"><i class="fas fa-print"></i></a>
-                                    <a  routerLink="/stagiaire" matTooltip="Delete" (click)="fiche3(element.id)"><i class="fas fa-print"></i></a>
+                                    <a routerLink="/fc" matTooltip="Modifier"(click)="handleEditAction(element)"><i class="m-r-10 mdi mdi-pen"></i> </a>
+                                    <a  routerLink="/fc" matTooltip="Delete" (click)="deleteFor(element.id)" *ngIf="role=='Admin'"><i class="m-r-10 mdi mdi-delete-empty"></i></a>
                                 </td>
 
                             </ng-container>
@@ -158,5 +145,6 @@
         <app-footer></app-footer>
     </div>
 <body>  
+
 
 

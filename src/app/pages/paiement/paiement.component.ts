@@ -80,6 +80,8 @@ export class PaiementComponent implements OnInit{
         this.snackbarService.openSnackBar(this.responseMessage,GlobalConstants.error);
         
       })
+
+      
     }
 
  
